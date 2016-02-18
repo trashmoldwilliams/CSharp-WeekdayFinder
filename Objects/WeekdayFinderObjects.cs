@@ -16,7 +16,7 @@ namespace WeekDayFinders
 
     public static string FindWeekDay(double month, double day, double year)
     {
-       double daysSinceAnchor = ((year - 1800) * 365) + WeekDayFinder.findDaysAMonth(month - 1) + day;
+       double daysSinceAnchor = ((year - 1800) * 365) + Math.Floor((year - 1800)/4) + WeekDayFinder.findDaysAMonth(month - 1) + day;
 
        double weekdayNumber = daysSinceAnchor % 7;
        Console.WriteLine("Weekday Number: " + weekdayNumber);
@@ -28,7 +28,7 @@ namespace WeekDayFinders
        testWeek.Add(4, "Saturday");
        testWeek.Add(5, "Sunday");
        testWeek.Add(6, "Monday");
-       testWeek.Add(7, "Tuesday");
+       testWeek.Add(0, "Tuesday");
 
        string output = "FAILURE";
 
