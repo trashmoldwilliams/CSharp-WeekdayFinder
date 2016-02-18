@@ -24,10 +24,20 @@ namespace WeekDayFinderTest
       double day = 1;
       Assert.Equal("Saturday", WeekDayFinder.FindWeekDay(month, day, year));
     }
+
     [Fact]
-    public void IsDate_forDateBeingDecTwentyFifth1804_sunday()
+    public void IsDate_forDateBeingDecTwentyFifth1804_tuesday()
     {
       double year = 1804;
+      double month = 12;
+      double day = 25;
+      Assert.Equal("Tuesday", WeekDayFinder.FindWeekDay(month, day, year));
+    }
+
+    [Fact]
+    public void IsDate_forDateBeingDecTwentyFifth1900_tuesday()
+    {
+      double year = 1900;
       double month = 12;
       double day = 25;
       Assert.Equal("Tuesday", WeekDayFinder.FindWeekDay(month, day, year));

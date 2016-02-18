@@ -14,9 +14,17 @@ namespace WeekDayFinders
 
     }
 
+
+
     public static string FindWeekDay(double month, double day, double year)
     {
-       double daysSinceAnchor = ((year - 1800) * 365) + Math.Floor((year - 1800)/4) + WeekDayFinder.findDaysAMonth(month - 1) + day;
+      Console.WriteLine("Days from years: {0}", (year - 1800) * 365);
+      Console.WriteLine("Days from leap years: {0}", Math.Floor((year - 1800)/4));
+      Console.WriteLine("days from leap years div by 100: {0}",Math.Floor((year - 1800)/100));
+      Console.WriteLine("DAys from month: {0}", WeekDayFinder.findDaysAMonth(month - 1));
+      Console.WriteLine("Days from day: {0}", day);
+
+       double daysSinceAnchor = ((year - 1800) * 365) + Math.Floor((year - 1800)/4) - Math.Floor((year - 1800)/100) + WeekDayFinder.findDaysAMonth(month - 1) + day;
 
        double weekdayNumber = daysSinceAnchor % 7;
        Console.WriteLine("Weekday Number: " + weekdayNumber);
