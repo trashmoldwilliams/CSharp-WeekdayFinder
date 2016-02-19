@@ -42,5 +42,13 @@ namespace WeekDayFinderTest
       double day = 25;
       Assert.Equal("Tuesday", WeekDayFinder.FindWeekDay(month, day, year));
     }
+    [Fact]
+    public void IsDate_forDateBeing_wednesday()
+    {
+      double year = 2000;
+      double month = 3;
+      double day = 1;
+      Assert.Equal("Wednesday", WeekDayFinder.FindWeekDay(month, day, year));
+    }
   }
 }

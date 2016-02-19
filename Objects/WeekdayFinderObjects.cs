@@ -24,7 +24,15 @@ namespace WeekDayFinders
       Console.WriteLine("DAys from month: {0}", WeekDayFinder.findDaysAMonth(month - 1));
       Console.WriteLine("Days from day: {0}", day);
 
-       double daysSinceAnchor = ((year - 1800) * 365) + Math.Floor((year - 1800)/4) - Math.Floor((year - 1800)/100) + WeekDayFinder.findDaysAMonth(month - 1) + day;
+       double daysSinceAnchor = ((year - 1800) * 365) + Math.Floor((year - 1800)/4) - Math.Floor((year - 1800)/100) + Math.Floor((year-1800)/400) + WeekDayFinder.findDaysAMonth(month - 1) + day;
+       if (year % 400 == 0 && year % 100 == 0 || year % 4 == 0 && year % 100 != 0 && year % 400 == 0)
+       {
+        Console.WriteLine("This is the test month {0}", month);
+        if(month >= 3)
+          {
+            daysSinceAnchor += 1;
+          }
+       }
 
        double weekdayNumber = daysSinceAnchor % 7;
        Console.WriteLine("Weekday Number: " + weekdayNumber);
